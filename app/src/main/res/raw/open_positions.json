@@ -1,0 +1,54 @@
+{
+  "positions": [
+    {
+      "symbol": "AAPL",
+      "name": "Apple Inc.",
+      "transactionType": "1",
+      "transactionPrice" : "174.22",
+      "quantity" : "100",
+      "transactionDate" : "2018-01-24",
+      "exchange" : "NASDAQ",
+      "instrument" : "equity"
+    },
+    {
+      "symbol": "MSFT",
+      "name": "Microsoft Corporation",
+      "transactionType": "1",
+      "transactionPrice" : "91.82",
+      "quantity" : "100",
+      "transactionDate" : "2018-01-24",
+      "exchange" : "NASDAQ",
+      "instrument" : "equity"
+    },
+    {
+      "symbol": "FB",
+      "name": "Facebook, Inc.",
+      "transactionType": "1",
+      "transactionPrice" : "186.55",
+      "quantity" : "100",
+      "transactionDate" : "2018-01-24",
+      "exchange" : "NASDAQ",
+      "instrument" : "equity"
+    },
+    {
+      "symbol": "AMZN",
+      "name": "Amazon.com, Inc.",
+      "transactionType": "1",
+      "transactionPrice" : "1357.51",
+      "quantity" : "100",
+      "transactionDate" : "2018-01-24",
+      "exchange" : "NASDAQ",
+      "instrument" : "equity"
+    },
+    {
+      "symbol": "INTC",
+      "name": "Intel Corporation",
+      "transactionType": "1",
+      "transactionPrice" : "50.08",
+      "quantity" : "100",
+      "transactionDate" : "2018-01-26",
+      "exchange" : "NASDAQ",
+      "instrument" : "equity"
+    }
+  ]
+}
