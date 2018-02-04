@@ -52,7 +52,6 @@ public class PositionParserTest {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        ;
 
         String raw = CommonUtils.convert(is);
         Log.d("raw: ", raw);

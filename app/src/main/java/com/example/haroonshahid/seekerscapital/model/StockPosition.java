@@ -2,8 +2,6 @@ package com.example.haroonshahid.seekerscapital.model;
 
 import android.support.annotation.IntDef;
 
-import com.example.haroonshahid.seekerscapital.model.Stock;
-
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 

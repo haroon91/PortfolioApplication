@@ -1,7 +1,5 @@
 package com.example.haroonshahid.seekerscapital.model;
 
-import java.io.Serializable;
-
 /**
  * Created by haroonshahid on 4/2/2018.
  */
