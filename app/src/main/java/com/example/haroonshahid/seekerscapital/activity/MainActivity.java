@@ -51,6 +51,7 @@ public class MainActivity extends Activity {
                 SeekersApplication.instance().fetchStockPrices();
             } else if (intent.getAction().equals(Constants.INTENT_ACTION_PRICE_UPDATE)) {
                 swipeRefreshLayout.setRefreshing(false);
+                stopProgressBar();
             }
 
             updateUI();
@@ -67,7 +68,6 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         progressLayout = findViewById(R.id.rl_progressbar);
-        startProgressBar();
 
         getActionBar().show();
         initActionBarLayout();
@@ -95,6 +95,7 @@ public class MainActivity extends Activity {
         );
 
         if (!inited) {
+            startProgressBar();
             SeekersApplication.instance().retrieveStockPositionsList();
             inited = true;
         } else {
@@ -144,7 +145,6 @@ public class MainActivity extends Activity {
         stockListAdapter.notifyDataSetChanged();
 
         calculatePortfolioValue();
-        stopProgressBar();
     }
 
     private void calculatePortfolioValue() {
