@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.example.haroonshahid.seekerscapital.model.Stock;
 import com.example.haroonshahid.seekerscapital.model.StockPosition;
+import com.example.haroonshahid.seekerscapital.parser.PositionsParser;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -34,16 +35,9 @@ import static junit.framework.Assert.assertTrue;
 @Config(manifest = "app/src/main/AndroidManifest.xml")
 public class PositionParserTest {
 
-
-    @Before
-    public void setUp() throws Exception {
-        ShadowLog.stream = System.out;
-//        SeekersApplication.instance(true);
-    }
-
     @Test
-    public void myTest() {
-        String filename = "app/src/test/java/open_positionss.json";
+    public void testPositionParsing() {
+        String filename = "app/src/test/java/open_positions.json";
         File file = new File(filename);
 
         InputStream is = null;
@@ -61,25 +55,43 @@ public class PositionParserTest {
             assertTrue(false);
         }
 
-        LazyObject lazyObject = new LazyObject(raw);
-        LazyArray lazyArray = lazyObject.getJSONArray("positions");
-        List<StockPosition> stockPositionList = new ArrayList<>();
-        for (int i=0; i<lazyArray.length(); i++) {
-            LazyObject positionObject = lazyArray.getJSONObject(i);
-            if (positionObject != null) {
-
-                StockPosition stockPosition =
-                        new StockPosition(new Stock(positionObject.getString("name"), positionObject.getString("symbol"), positionObject.getString("exchange")),
-                                positionObject.getInt("transactionType"),
-                                positionObject.getDouble("transactionPrice"),
-                                positionObject.getDouble("quantity"),
-                                positionObject.getString("transactionDate"));
-
-                stockPositionList.add(stockPosition);
-            }
+        PositionsParser positionsParser = new PositionsParser();
+        List<StockPosition> stockPositionList = null;
+        try {
+            stockPositionList = positionsParser.parse(raw);
+        } catch (Exception e) {
+            assertTrue(false);
         }
 
-        assertEquals(5, stockPositionList.size());
+        assertEquals("Apple Inc.", stockPositionList.get(0).getStock().name);
+        assertEquals("NASDAQ", stockPositionList.get(0).getStock().exchange);
+        assertEquals("AAPL", stockPositionList.get(0).getStock().symbol);
+        assertEquals(1, stockPositionList.get(0).transactionType);
+        assertEquals(174.22, stockPositionList.get(0).getTransactionPrice());
+        assertEquals(100.0, stockPositionList.get(0).getQuantity());
+        assertEquals("2018-01-24", stockPositionList.get(0).getTransactionDate());
+
+        assertEquals("Microsoft Corporation", stockPositionList.get(1).getStock().name);
+        assertEquals("NASDAQ", stockPositionList.get(1).getStock().exchange);
+        assertEquals("MSFT", stockPositionList.get(1).getStock().symbol);
+        assertEquals(1, stockPositionList.get(1).transactionType);
+        assertEquals(91.82, stockPositionList.get(1).getTransactionPrice());
+        assertEquals(100.0, stockPositionList.get(1).getQuantity());
+        assertEquals("2018-01-24", stockPositionList.get(1).getTransactionDate());
+
+        assertEquals(2, stockPositionList.size());
+    }
+
+    @Test
+    public void testParseWhenRawStringIsEmpty() {
+        PositionsParser positionsParser = new PositionsParser();
+        String raw = "";
+        try {
+            List<StockPosition> stockPositionList = positionsParser.parse(raw);
+            assertEquals(null, stockPositionList);
+        } catch (Exception e) {
+            assertTrue(false);
+        }
 
     }
 }

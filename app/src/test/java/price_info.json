@@ -1,0 +1,83 @@
+{
+  "datatable": {
+    "data": [
+      [
+        "FOX",
+        "2018-01-31",
+        37.83,
+        37.84,
+        36.26,
+        36.49,
+        3507551,
+        0,
+        1,
+        37.83,
+        37.84,
+        36.26,
+        36.49,
+        3507551
+      ]
+    ],
+    "columns": [
+      {
+        "name": "ticker",
+        "type": "String"
+      },
+      {
+        "name": "date",
+        "type": "Date"
+      },
+      {
+        "name": "open",
+        "type": "BigDecimal(34,12)"
+      },
+      {
+        "name": "high",
+        "type": "BigDecimal(34,12)"
+      },
+      {
+        "name": "low",
+        "type": "BigDecimal(34,12)"
+      },
+      {
+        "name": "close",
+        "type": "BigDecimal(34,12)"
+      },
+      {
+        "name": "volume",
+        "type": "BigDecimal(37,15)"
+      },
+      {
+        "name": "ex-dividend",
+        "type": "BigDecimal(42,20)"
+      },
+      {
+        "name": "split_ratio",
+        "type": "double"
+      },
+      {
+        "name": "adj_open",
+        "type": "BigDecimal(50,28)"
+      },
+      {
+        "name": "adj_high",
+        "type": "BigDecimal(50,28)"
+      },
+      {
+        "name": "adj_low",
+        "type": "BigDecimal(50,28)"
+      },
+      {
+        "name": "adj_close",
+        "type": "BigDecimal(50,28)"
+      },
+      {
+        "name": "adj_volume",
+        "type": "double"
+      }
+    ]
+  },
+  "meta": {
+    "next_cursor_id": null
+  }
+}
